@@ -17,17 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   static let MapUpdateNotification = NSNotification.Name(rawValue: "MapUpdateNotification")
 
-  var selectedMapStyle: StyleSheet = BubbleWrapStyle() {
-    didSet {
-      NotificationCenter.default.post(name: AppDelegate.MapUpdateNotification, object: nil)
-    }
-  }
+  var selectedMapStyle: StyleSheet = CinnabarStyle() 
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     startCrashReporter()
     let apiKey = getEnvironmentVariable(key: "MAPZEN_API_KEY")
-    assert(apiKey.contains("mapzen-"), "Set your Mapzen API key in the scheme by adding a MAPZEN_API_KEY environment variable.")
+ //assert(apiKey.contains("mapzen-"), "Set your Mapzen API key in the scheme by adding a MAPZEN_API_KEY environment variable.")
     MapzenManager.sharedManager.apiKey = apiKey
     return true
   }

@@ -48,6 +48,7 @@ open class RoutingController: OTRRoutingController {
     }
     let controller = RoutingController.init(sessionManager: sessionManager)
     controller.urlQueryComponents.add(URLQueryItem(name: kApiKey, value: apiKey))
+    controller.baseUrl = "http://10.5.1.87:8002/route?"
     return controller
   }
 
@@ -60,6 +61,7 @@ open class RoutingController: OTRRoutingController {
     locale = l
   }
 
+    
   override open func requestRoute(withLocations locations: [OTRRoutingPoint], costingModel costing: OTRRoutingCostingModel, costingOption costingOptions: [String : NSObject]?, directionsOptions: [String : NSObject]? = nil, callback: @escaping (OTRRoutingResult?, Any?, Error?) -> Swift.Void) -> URLSessionDataTask? {
     guard let localeLanguage = locale.languageCode else {
       return super.requestRoute(withLocations: locations, costingModel: costing, costingOption: costingOptions, directionsOptions: directionsOptions, callback: callback)

@@ -17,6 +17,7 @@ protocol AutocompleteSearchDelegate {
 class SampleAutocompleteTableViewController: SampleTableViewController, UISearchResultsUpdating, UISearchBarDelegate, LocationManagerDelegate {
   
   let searchController = UISearchController(searchResultsController: nil)
+    
   var results: [PeliasMapkitAnnotation]?
   let manager = LocationManager()
   var currentLocation: CLLocation?
@@ -29,6 +30,7 @@ class SampleAutocompleteTableViewController: SampleTableViewController, UISearch
     self.tableView.tableHeaderView = searchController.searchBar
     self.definesPresentationContext = true
     searchController.searchBar.sizeToFit()
+    
     manager.delegate = self
   }
   
@@ -67,6 +69,7 @@ class SampleAutocompleteTableViewController: SampleTableViewController, UISearch
           self.tableView.reloadData()
         }
       })
+        MapzenSearch.sharedInstance.baseUrl = URL(string : "http://10.5.1.87:4000")!
       _ = MapzenSearch.sharedInstance.autocompleteQuery(config)
     }
   }

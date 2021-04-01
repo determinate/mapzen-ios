@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MAPZEN_API_KEY</key>
-	<string>$(MAPZEN_API_KEY)</string>
+	<string>vjR69dRZSqWRvUNgwG69Bw</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Need location to make things happen!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -24,12 +24,14 @@ public class MapzenSearch : NSObject {
         } // if let queryItems
         return
       }
-
       urlQueryItems = [URLQueryItem(name: "api_key", value: apiKey)]
-    } // didSet
+    }
+    // didSet
   }
 
+
   private let peliasSearchManager = PeliasSearchManager.sharedInstance
+    
   private var myContext = 0
 
   /// Delay in seconds that the manager should wait between keystrokes to fire a new autocomplete request. Default is 0.3
@@ -43,15 +45,17 @@ public class MapzenSearch : NSObject {
   }
 
   /// Base url to execute requests against. Default value is https://search.mapzen.com.
-  public var baseUrl: URL {
-    get {
-      return peliasSearchManager.baseUrl
+  public var baseUrl: URL
+  {
+  get {
+        let url = URL(string: "http://10.5.1.87:4000")
+       return URL(string: "http://10.5.1.87:4000")!;
     }
     set(url) {
-      peliasSearchManager.baseUrl = url
+        peliasSearchManager.baseUrl = URL(string: "http://10.5.1.87:4000")!
     }
   }
-
+    
   /// The query items that should be applied to every request (such as an api key).
   public var urlQueryItems: [URLQueryItem]? {
     get {
